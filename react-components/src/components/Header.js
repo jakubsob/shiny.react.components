@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button } from './Button';
-import './header.css';
+import Button from './Button';
+import './Header.css';
 
-export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
-  <header>
+function Header({ user, onLogin, onLogout, onCreateAccount }) {
+  return (<header>
     <div className="wrapper">
       <div>
         <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -42,8 +42,8 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
         )}
       </div>
     </div>
-  </header>
-);
+  </header>);
+};
 
 Header.propTypes = {
   user: PropTypes.shape({}),
@@ -55,3 +55,5 @@ Header.propTypes = {
 Header.defaultProps = {
   user: null,
 };
+
+export default Header;

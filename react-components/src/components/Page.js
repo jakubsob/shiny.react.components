@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Header } from './Header';
-import './page.css';
+import Header from './Header';
+import './Page.css';
 
-export const Page = () => {
+function Page() {
   const [user, setUser] = React.useState();
 
   return (
@@ -67,3 +67,5 @@ export const Page = () => {
     </article>
   );
 };
+
+export default Page;
