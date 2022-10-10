@@ -39,6 +39,9 @@ input <- function(name, defaultValue) {
   }
 }
 
+#' @export
+PersonaInput.shinyInput <- input("PersonaInput", NULL)
+
 button <- function(name) {
   function(inputId, ...) {
     shiny.react::reactElement(

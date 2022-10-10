@@ -2,18 +2,38 @@ library(shiny)
 library(shiny.react)
 library(react.components)
 
+
 shinyApp(
   ui = fluidPage(
-    Button(label = "Button Primary Large", primary = TRUE, size = "large"),
-    Button(label = "Button Small", primary = FALSE, size = "small"),
-    Button.shinyInput(inputId = "button", label = "Button input", primary = TRUE),
-    textOutput("buttonOutput"),
     Header(user = "John"),
-    Page()
+    fluidRow(
+      column(
+        6,
+        Button.shinyInput(inputId = "button", label = "Button input", primary = TRUE),
+      ),
+      column(
+        2,
+        textOutput("buttonOutput"),
+      )
+    ),
+    fluidRow(
+      column(
+        6,
+        PersonaInput.shinyInput(inputId = "persona", placeholder = "Write a name", primary = TRUE)
+      ),
+      column(
+        2,
+        textOutput("personaOutput"),
+      )
+    )
   ),
   server = function(input, output) {
     output$buttonOutput <- renderText({
       input$button
+    })
+
+    output$personaOutput <- renderText({
+      input$persona
     })
   }
 )
